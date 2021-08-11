@@ -18,25 +18,10 @@
 #
 ##############################################################################
 
-from openerp import api, fields, models
+from odoo import fields, models
 
 
-class PurchaseOrder(models.Model):
-    _inherit = "purchase.order"
+class StockWarehouseOrderpoint(models.Model):
+    _inherit = "stock.warehouse.orderpoint"
 
-    specific_location_id = fields.Many2one("stock.location", string="Specific Location")
-    default_location_dest_id = fields.Many2one(
-        related="picking_type_id.default_location_dest_id", string="Default Location"
-    )
-
-    @api.multi
-    def _get_destination_location(self):
-        self.ensure_one()
-        if self.specific_location_id:
-            return self.specific_location_id.id
-        else:
-            return super(PurchaseOrder, self)._get_destination_location()
-
-    @api.onchange("picking_type_id")
-    def onchange_specific_location(self):
-        self.specific_location_id = False
+    location_destination_id = fields.Many2one("stock.location", "Destination Location")

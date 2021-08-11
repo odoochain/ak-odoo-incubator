@@ -19,18 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Stock Orderpoint Specific Location",
-    "version": "0.1",
+    "name": "Purchase Specific Location",
+    "version": "14.0.1.0.0",
     "author": "Akretion,Odoo Community Association (OCA)",
     "website": "https://github.com/akretion/ak-odoo-incubator",
-    "description": """
+    "summary": """
     Allow to create reception in a sublocation of the location's orderpoint
-    Warning : need to patch Odoo purchase module to make it work.
-    https://github.com/akretion/odoo/tree/9.0-hooks
  """,
     "license": "AGPL-3",
     "category": "Generic Modules/Others",
-    "summary": "Export",
     "depends": ["stock", "purchase"],
     "data": [
         "views/stock_orderpoint_view.xml",

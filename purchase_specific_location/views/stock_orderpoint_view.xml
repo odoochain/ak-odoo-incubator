@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<openerp>
-<data>
+<odoo>
 
 
     <record id="stock_orderpoint_destination_location_form_view" model="ir.ui.view">
@@ -9,12 +8,11 @@
         <field name="arch" type="xml">
             <field name="location_id" position="after">
                 <field
-                        name="location_destination_id"
-                        domain="[('id', 'child_of', location_id)]"
-                    />
+                    name="location_destination_id"
+                    domain="[('id', 'child_of', location_id)]"
+                />
             </field>
         </field>
     </record>
 
-</data>
-</openerp>
+</odoo>

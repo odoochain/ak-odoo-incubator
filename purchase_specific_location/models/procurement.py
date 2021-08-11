@@ -18,7 +18,7 @@
 #
 ##############################################################################
 
-from openerp import api, fields, models
+from odoo import api, fields, models
 
 
 class ProcurementOrder(models.Model):
@@ -45,7 +45,6 @@ class ProcurementOrder(models.Model):
             res += additional_keys
         return res
 
-    @api.multi
     def _prepare_purchase_order(self, partner):
         vals = super(ProcurementOrder, self)._prepare_purchase_order(partner)
         if self.po_specific_location:
