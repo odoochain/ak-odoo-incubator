@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -25,11 +24,10 @@ from openerp import api, fields, models
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
-    specific_location_id = fields.Many2one(
-        'stock.location', string='Specific Location')
+    specific_location_id = fields.Many2one("stock.location", string="Specific Location")
     default_location_dest_id = fields.Many2one(
-        related='picking_type_id.default_location_dest_id',
-        string='Default Location')
+        related="picking_type_id.default_location_dest_id", string="Default Location"
+    )
 
     @api.multi
     def _get_destination_location(self):
@@ -39,6 +37,6 @@ class PurchaseOrder(models.Model):
         else:
             return super(PurchaseOrder, self)._get_destination_location()
 
-    @api.onchange('picking_type_id')
+    @api.onchange("picking_type_id")
     def onchange_specific_location(self):
         self.specific_location_id = False

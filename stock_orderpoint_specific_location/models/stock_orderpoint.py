@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -25,6 +24,4 @@ from openerp import fields, models
 class StockWarehouseOrderpoint(models.Model):
     _inherit = "stock.warehouse.orderpoint"
 
-    location_destination_id = fields.Many2one(
-        'stock.location', 'Destination Location')
-
+    location_destination_id = fields.Many2one("stock.location", "Destination Location")

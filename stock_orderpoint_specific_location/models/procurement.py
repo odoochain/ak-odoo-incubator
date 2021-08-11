@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -25,26 +24,24 @@ from openerp import api, fields, models
 class ProcurementOrder(models.Model):
     _inherit = "procurement.order"
 
-    po_specific_location = fields.Many2one('stock.location')
+    po_specific_location = fields.Many2one("stock.location")
 
     @api.model
     def _prepare_orderpoint_procurement(self, orderpoint, product_qty):
         res = super(ProcurementOrder, self)._prepare_orderpoint_procurement(
-            orderpoint, product_qty)
+            orderpoint, product_qty
+        )
         if orderpoint.location_destination_id:
             loc_id = orderpoint.location_destination_id.id
-            res['po_specific_location'] = loc_id
+            res["po_specific_location"] = loc_id
         return res
 
     @api.model
     def get_merge_po_keys(self, partner, procurement):
-        res = super(ProcurementOrder, self).get_merge_po_keys(
-            partner, procurement)
+        res = super(ProcurementOrder, self).get_merge_po_keys(partner, procurement)
         if procurement.orderpoint_id.location_destination_id:
             loc_id = procurement.orderpoint_id.location_destination_id.id
-            additional_keys = (
-                ('specific_location_id', '=', loc_id),
-            )
+            additional_keys = (("specific_location_id", "=", loc_id),)
             res += additional_keys
         return res
 
@@ -52,5 +49,5 @@ class ProcurementOrder(models.Model):
     def _prepare_purchase_order(self, partner):
         vals = super(ProcurementOrder, self)._prepare_purchase_order(partner)
         if self.po_specific_location:
-            vals['specific_location_id'] = self.po_specific_location.id
+            vals["specific_location_id"] = self.po_specific_location.id
         return vals

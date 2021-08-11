@@ -40,4 +40,3 @@ class ProcurementOrder(Model):
                     'location_id': orderpoint.location_id.id,
                     'procure_method': 'make_to_order',
                     'origin': orderpoint.name}
-

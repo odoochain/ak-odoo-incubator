@@ -55,4 +55,3 @@ class StockWarehouseOrderpoint(Model):
             string="Related Procurement Orders",
             help="Draft procurement of the product and location of that orderpoint"),
     }
-
