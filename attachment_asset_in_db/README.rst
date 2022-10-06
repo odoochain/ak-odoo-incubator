@@ -17,9 +17,13 @@ attachment_asset_in_db
     :target: https://github.com/akretion/ak-odoo-incubator/tree/14.0/attachment_asset_in_db
     :alt: akretion/ak-odoo-incubator
 
-|badge1| |badge2| |badge3| 
+|badge1| |badge2| |badge3|
 
 Force storing the asset into the database. Usefull for CI integration without copy pasting the real filestore
+
+强制将资产存储到数据库中。对 CI 集成很有用，无需复制粘贴真实文件存储
+
+但是，这样会不会造成系统性能下降或者其他副作用？
 
 **Table of contents**
 
